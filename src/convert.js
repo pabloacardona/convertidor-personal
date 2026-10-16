@@ -5,17 +5,16 @@ import { convertWithLibreOffice, convertWithPandoc } from './converters/document
 
 export const isEngineAvailable = (engine) => Boolean(tools[engine]);
 
-export async function convert({ category, input, output, sourceExt, target, quality }) {
-  switch (category.engine) {
-    case 'sharp':
-      return convertImage(input, output, target, { quality });
-    case 'ffmpeg':
-      return convertMedia(input, output, target);
-    case 'libreoffice':
-      return convertWithLibreOffice(input, output, target);
-    case 'pandoc':
-      return convertWithPandoc(input, output, target, sourceExt);
-    default:
-      throw new Error(`Motor desconocido: ${category.engine}`);
-  }
+const CONVERTERS = {
+  sharp: convertImage,
+  ffmpeg: convertMedia,
+  libreoffice: convertWithLibreOffice,
+  pandoc: convertWithPandoc,
+};
+
+// task: { category, input, output, sourceExt, target, options, signal, onProgress }
+export async function convert(task) {
+  const converter = CONVERTERS[task.category.engine];
+  if (!converter) throw new Error(`Motor desconocido: ${task.category.engine}`);
+  return converter(task);
 }

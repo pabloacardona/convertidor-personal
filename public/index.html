@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Convertidor personal</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%94%81%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,13 +22,16 @@
 
     <section id="toolbar" class="toolbar" hidden>
       <label>Convertir todos a
-        <select id="bulk-target"><option value="">— elegir —</option></select>
+        <select id="bulk-target"></select>
+      </label>
+      <label>Preset audio/video
+        <select id="bulk-preset"></select>
       </label>
       <label>Calidad imagen <output id="quality-value">85</output>
         <input id="quality" type="range" min="10" max="100" value="85">
       </label>
       <div class="spacer"></div>
-      <button id="clear" type="button" class="ghost">Limpiar</button>
+      <button id="clear" type="button" class="ghost">Limpiar terminados</button>
       <button id="convert-all" type="button">Convertir</button>
     </section>
 

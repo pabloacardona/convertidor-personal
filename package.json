@@ -1,6 +1,6 @@
 {
   "name": "convertidor-personal",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Convertidor de archivos local y personal (imágenes, audio, video, documentos).",
   "type": "module",
   "main": "src/server.js",
