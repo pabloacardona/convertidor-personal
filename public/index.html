@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convertidor personal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Convertidor personal</h1>
+      <p class="sub">Todo se procesa en este PC. Nada sale a internet.</p>
+    </header>
+
+    <label id="drop" class="drop" tabindex="0">
+      <input id="picker" type="file" multiple hidden>
+      <strong>Arrastra archivos aquí</strong>
+      <span>o haz clic para elegirlos</span>
+    </label>
+
+    <section id="toolbar" class="toolbar" hidden>
+      <label>Convertir todos a
+        <select id="bulk-target"><option value="">— elegir —</option></select>
+      </label>
+      <label>Calidad imagen <output id="quality-value">85</output>
+        <input id="quality" type="range" min="10" max="100" value="85">
+      </label>
+      <div class="spacer"></div>
+      <button id="clear" type="button" class="ghost">Limpiar</button>
+      <button id="convert-all" type="button">Convertir</button>
+    </section>
+
+    <ul id="list" class="list"></ul>
+
+    <footer>
+      <details>
+        <summary>Motores disponibles</summary>
+        <ul id="engines" class="engines"></ul>
+      </details>
+    </footer>
+  </main>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
